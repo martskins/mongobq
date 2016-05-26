@@ -31,6 +31,7 @@ program
   .option('--dryrun', 'run as dryrun mode')
   .option('-l, --limit <limit>', 'limit number of documents returned from query', parseInt)
   .option('-s, --skip <skip>', 'skip specified number of documents', parseInt)
+  .option('-w, --writeDisposition <writeDisposition>', 'specifies the import job write disposition')
   .parse(process.argv);
 
 var opts = {
@@ -56,7 +57,8 @@ var opts = {
   compress: !program.nocompress,
   dryrun: program.dryrun,
   limit: program.limit,
-  skip: program.skip
+  skip: program.skip,
+  writeDisposition: program.writeDisposition
 };
 
 if (checkArgs(opts)) {
